@@ -1,3 +1,7 @@
 spring:
   application:
-    name: employee_microservice
+    name: ${NAMEPROJECT}
+  cors:
+    hostOne: ${ORIGINONE}
+    hostTwo: ${ORIGINTWO}
+    hostThree: ${ORIGINTHREE}

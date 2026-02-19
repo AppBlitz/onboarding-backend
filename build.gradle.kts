@@ -30,6 +30,8 @@ dependencies {
 	implementation("org.modelmapper:modelmapper:3.2.6")
 	compileOnly("org.projectlombok:lombok")
 	runtimeOnly("org.postgresql:postgresql")
+	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+  testImplementation("org.springframework.boot:spring-boot-starter-data-jpa-test")
 	annotationProcessor("org.projectlombok:lombok")
   testImplementation("org.apache.httpcomponents.client5:httpclient5")
 	testImplementation("org.springframework.boot:spring-boot-starter-validation-test")

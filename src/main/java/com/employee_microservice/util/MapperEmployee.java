@@ -1,5 +1,6 @@
 package com.employee_microservice.util;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.employee_microservice.mappers.ModelMappers;
@@ -9,6 +10,7 @@ import com.employee_microservice.model.entitys.Employee;
 @Component
 public class MapperEmployee {
 
+  @Autowired
   private ModelMappers modelMappers;
 
   public Employee getDtoToEmployee(EmployeeDto employeeDto) {

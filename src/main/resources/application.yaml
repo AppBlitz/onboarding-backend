@@ -6,9 +6,9 @@ spring:
     # esto son las cosas basicas para la base de datos
     # el puerto por defecto de postgresql es 5432, así que si ve que es encesario lo cambia
   datasource:
-    url: jdbc:postgresql://localhost:5433/employee
-    # //username:{} poner la username de su base de datos
-    # password: Poner la contraseña de su base de datos
+    url: jdbc:postgresql://localhost:5433/employee_db
+    username: user_db
+    password: 1234
     driver-class-name: org.postgresql.Driver
 
   jpa:

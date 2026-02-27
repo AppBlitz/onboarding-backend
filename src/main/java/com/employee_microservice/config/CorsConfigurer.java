@@ -23,6 +23,7 @@ public class CorsConfigurer {
   @Bean("configurerCors")
   public WebMvcConfigurer corsConfigurer() {
     return new WebMvcConfigurer() {
+      @Override
       public void addCorsMappings(CorsRegistry corsRegistry) {
         corsRegistry.addMapping("/employee/update").allowedOrigins().allowedMethods("POST");
         corsRegistry.addMapping("/employee/retrieve").allowedOrigins().allowedMethods("GET");

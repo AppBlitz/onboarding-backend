@@ -1,5 +1,6 @@
 package com.employee_microservice.model.entitys;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.List;
 
 import jakarta.persistence.Column;
@@ -28,7 +29,8 @@ public class Position {
 
   @Column(name = "position_name", nullable = false, length = 100)
   private String positionName;
-
+  
+  @JsonIgnore
   @OneToMany(mappedBy = "position")
-  private List<AreaPosition> areaPositions;
+  private List<Employee> employees;
 }

@@ -2,6 +2,8 @@ package com.employee_microservice.model.entitys;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -24,11 +26,12 @@ public class City {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "id_city")
-  private Long id_city;
+  private Long idCity;
 
   @Column(name = "name_city", nullable = false, length = 100)
   private String nameCity;
 
+  @JsonIgnore
   @OneToMany(mappedBy = "city")
   private List<Employee> employees;
 

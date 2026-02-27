@@ -9,7 +9,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.employee_microservice.model.dto.EmployeeDto;
+import com.employee_microservice.model.dto.EmployeeDtoRequest;
+import com.employee_microservice.model.dto.EmployeeDtoResponse;
 import com.employee_microservice.service.ServiceEmployee;
 import com.employee_microservice.util.MapperEmployee;
 
@@ -26,12 +27,12 @@ public class ControllerEmployee {
   MapperEmployee mapperEmployee;
 
   @GetMapping(path = "/retrieve/{idEmployee}", produces = "application/json")
-  public ResponseEntity<EmployeeDto> retrieveEmployee(@PathVariable("idEmployee") Long idEmployee) {
-    return ResponseEntity.ok(mapperEmployee.getEmployeeToDto(serviceEmployee.getEmployeeForID(idEmployee)));
+  public ResponseEntity<EmployeeDtoResponse> retrieveEmployee(@PathVariable("idEmployee") Long idEmployee) {
+    return ResponseEntity.ok((serviceEmployee.getEmployeeForID(idEmployee)));
   }
 
   @PostMapping(path = "/add", produces = "application/json")
-  public ResponseEntity<EmployeeDto> updateEmployee(@Valid @RequestBody EmployeeDto employeeDto) {
+  public ResponseEntity<EmployeeDtoRequest> updateEmployee(@Valid @RequestBody EmployeeDtoRequest employeeDto) {
     return ResponseEntity.ok(mapperEmployee.getEmployeeToDto(serviceEmployee.saveEmployee(employeeDto)));
   }
 

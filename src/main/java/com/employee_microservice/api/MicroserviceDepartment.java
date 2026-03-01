@@ -5,6 +5,7 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.net.http.HttpClient.Version;
 import java.net.http.HttpResponse.BodyHandlers;
 
 import org.springframework.stereotype.Component;
@@ -16,6 +17,7 @@ public class MicroserviceDepartment {
 
   public void dataMicroserviceDepartment(String uri) throws IOException, InterruptedException {
     HttpRequest request = HttpRequest.newBuilder()
+        .version(Version.HTTP_1_1)
         .GET()
         .uri(URI.create(uri))
         .build();

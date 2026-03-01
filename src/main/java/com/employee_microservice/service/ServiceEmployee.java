@@ -34,7 +34,11 @@ public class ServiceEmployee implements interfaceEmployee {
 
   @Override
   public EmployeeDtoResponse saveEmployee(EmployeeDtoRequest employeeDto) throws IOException, InterruptedException {
-    apiMicroservice.dataMicroserviceDepartment("");
+    String url = "";
+    boolean response = apiMicroservice.dataMicroserviceDepartment(url);
+    if (!response) {
+      return null;
+    }
     Employee employee = mapperEmployee.getDtoToEmployee(employeeDto);
     return mapperEmployee.getEmployee(Employeerepository.save(employee));
   }

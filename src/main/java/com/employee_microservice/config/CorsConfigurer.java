@@ -8,18 +8,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class CorsConfigurer {
 
-  // @Value("${spring.cors.hostOne}")
-  // private String hostOne;
-  //
-  // @Value("${spring.cors.hostTwo}")
-  // private String hostTwo;
-  //
-  // @Value("${spring.cors.hostThree}")
-  //
-  // private String hostTree;
-
-  // private String[] origins = { hostOne, hostTwo, hostTree };
-
   @Bean("configurerCors")
   public WebMvcConfigurer corsConfigurer() {
     return new WebMvcConfigurer() {

@@ -1,5 +1,7 @@
 package com.employee_microservice.controller;
 
+import java.io.IOException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,7 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.employee_microservice.model.dto.EmployeeDtoRequest;
 import com.employee_microservice.model.dto.EmployeeDtoResponse;
 import com.employee_microservice.service.ServiceEmployee;
@@ -32,7 +33,8 @@ public class ControllerEmployee {
   }
 
   @PostMapping(path = "/save/", produces = "application/json")
-  public ResponseEntity<EmployeeDtoResponse> updateEmployee(@Valid @RequestBody EmployeeDtoRequest employeeDto) {
+  public ResponseEntity<EmployeeDtoResponse> updateEmployee(@Valid @RequestBody EmployeeDtoRequest employeeDto)
+      throws IOException, InterruptedException {
     return ResponseEntity.ok((serviceEmployee.saveEmployee(employeeDto)));
   }
 

@@ -15,7 +15,7 @@ public class MicroserviceDepartment {
 
   private HttpClient client = HttpClient.newHttpClient();
 
-  public void dataMicroserviceDepartment(String uri) throws IOException, InterruptedException {
+  public boolean dataMicroserviceDepartment(String uri) throws IOException, InterruptedException {
     HttpRequest request = HttpRequest.newBuilder()
         .version(Version.HTTP_1_1)
         .GET()
@@ -23,9 +23,9 @@ public class MicroserviceDepartment {
         .build();
     HttpResponse<String> response = client.send(request, BodyHandlers.ofString());
     if (response.statusCode() != 200) {
-
+      return false;
     } else {
-
+      return true;
     }
   }
 }
